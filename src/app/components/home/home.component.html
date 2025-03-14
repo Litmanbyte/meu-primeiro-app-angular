@@ -1,0 +1,12 @@
+<p>homeeeeeeee {{meuBool}}</p>
+<button [attr.id]="nome" (click)="submit()" (mouseenter)="entrance()">Clique aqui</button>
+
+@if(mostrarTitulo){
+    <h1>Titulo</h1>
+}
+
+<h1 *ngIf="5>4">obvio</h1>
+
+@for (item of items; track item.nome) {
+    <h3>{{item.nome}}</h3>
+}
