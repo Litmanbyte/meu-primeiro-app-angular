@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { EnviaFormService } from '../../services/envia-form.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+  private sentToBackend = inject(EnviaFormService);
+
   meuBool : boolean = false;
   nome : string = "jorge";
   mostrarTitulo : boolean = false;
@@ -30,6 +34,10 @@ export class HomeComponent {
   marcola : Person = new Person("marcos",25,Gen.MALE);
   
   items=[this.jao, this.ze,this.marcola]
+
+  send() : void{
+    this.sentToBackend.sentToBack();
+  }
 }
 export class Person{
     nome : string;
